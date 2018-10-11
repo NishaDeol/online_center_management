@@ -1,0 +1,15 @@
+<a href="/contact_us">Contact Us</a>
+<h1 id="home_page">this is home page</h1>
+<a href="/teacher">Teacher Module</a>
+<div class="homm">
+	<ul>
+		<li><a href="<%= student_path %>">Student Module</a></li>
+		<li>Teacher Module</li>
+		<li>center manager module</li>
+		<% if user_signed_in? %>
+		<li><a href="/contact_us">Contact Us</a>
+		<% end %>
+		<li><a href="<%= about_us_path %>">About Us</a></li>
+	</ul>
+	
+</div>

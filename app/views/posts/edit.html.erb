@@ -1,0 +1,7 @@
+<%= link_to "back",posts_path %>
+<%= form_for @post do |f| %>
+  Title: <%= f.text_area :title, placeholder: "title" %><br/>
+	Description: <%= f.text_area :description, placeholder: "description" %><br/>
+	Image: <%= f.text_area :image %>
+<%= f.submit %>
+<%end%>

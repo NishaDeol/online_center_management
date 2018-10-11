@@ -1,0 +1,16 @@
+<% if user_signed_in? %>
+<%= link_to "create_new_post", new_post_path %><br/>
+<% end %>
+<% @posts.each do |post| %>
+  Title:<%= post.title %><br/>
+  Description:<%= post.description %><br/>
+  Image:
+  <% if post.image.present? %>
+    <%= image_tag post.image.url, width: 100, height: 50 %><br/>
+  <% end %>
+  <%= link_to "Show", post_path(post.id) %>
+  <% if user_signed_in? && post.user == current_user %>
+    <%= link_to "Edit", edit_post_path(post.id) %>
+    <%= link_to "delete", post_path(post.id) , method: :delete, data: { confirm: "are you sure?" } %>
+  <% end %>
+<% end %>

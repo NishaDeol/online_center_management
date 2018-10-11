@@ -1,0 +1,8 @@
+<%= link_to "back",posts_path %>
+<%= form_for @post do |f| %>
+  <%#= f.hidden_field :user_id, value: current_user.id %>
+  Title<%= f.text_area :title, placeholder: "title" %><br/>
+	Description:<%= f.text_area :description, placeholder: "description" %><br/>
+	Image<%= f.file_field :image %><br/>
+<%= f.submit %>
+<%end%>

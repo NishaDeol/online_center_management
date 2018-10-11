@@ -1,0 +1,40 @@
+<% if user_signed_in? %>
+  <%= link_to "create_new_book", new_book_path%>
+<% end %>
+<ul>
+  <% @books.each do |book| %>
+    <li>
+      <table>
+        <tr>
+          <td>Name:</td>
+          <td><%= book.name %></td>
+        </tr>
+        <tr>
+          <td>Author:</td>
+          <td><%= book.author %></td>
+        </tr>
+        <tr>
+          <td>Title:</td>
+          <td><%= book.title %></td>
+        </tr>
+        <tr>
+          <td>Description:</td>
+          <td><%= book.description %></td>
+        </tr>
+        <tr>
+          <td>Price:</td>
+          <td><%= book.price %></td>
+        </tr>
+        <tr>
+          <td>User email:</td>
+          <td><%= book.user.email rescue "" %></td>
+        </tr>
+      </table>
+			<%= link_to "Show", book_path(book.id) %>
+      <% if user_signed_in? && book.user == current_user %>
+			  <%= link_to "Edit", edit_book_path(book.id) %>
+			  <%= link_to "Delete",book_path(book.id), method: :delete,data: {confirm: "are you sure?"} %>
+      <% end %>
+		</li>
+	<%end%>
+</ul>

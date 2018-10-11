@@ -1,0 +1,8 @@
+<%= link_to "back",posts_path %>
+Title:<%= @post.title %>
+Description:<%= @post.description %>
+Image:<%= @post.image %>
+	<% if user_signed_in? && @post.user == current_user %>
+		<%= link_to "Edit", edit_post_path(@post.id) %>
+		<%= link_to "delete", post_path(@post.id), method: :delete, data: {confirm: "are you sure"} %>
+  <%end%>

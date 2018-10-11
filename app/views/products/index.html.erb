@@ -1,0 +1,16 @@
+<%= link_to "new", new_product_path %>
+<% @products.each do |product| %>
+	Name:<%= product.name %><br/>
+  Description:<%= product.description %><br/>
+  Price<%= product.price %><br/>
+  Available:<%= product.available %><br/>
+  Discontinue_on:<%= product.discontinue_on %></br>
+  Image:
+<% if product.image.present? %>
+  <%= image_tag product.image.url, width: 50, height: 80 %><br/>
+<% end %></br>
+  <%= link_to "Edit", edit_product_path(product.id) %><br/>
+  <%= link_to "show", product_path(product.id) %>
+  <%= link_to "delete", product_path(product.id), method: :delete, data: {confirm: "are you sure"} %>
+<% end %>
+

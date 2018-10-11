@@ -1,0 +1,9 @@
+<%= link_to "back", products_path %>
+	Name:<%= @product.name %><br/>
+	Description:<%= @product.description %><br/>
+	Price:<%= @product.price %><br/>
+	Available:<%= @product.available %>
+	Discontinue_on:<%= @product.discontinue_on %>
+	Image:<%= @product.image %>
+<%= link_to "Edit", edit_product_path(@product.id) %>
+<%= link_to "delete", product_path(@product.id), method: :delete, data: {confirm: "are u sure?"} %>

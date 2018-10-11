@@ -1,0 +1,10 @@
+<%= link_to "back", products_path %>
+<%= form_for @product do |f| %>
+	Name:<%= f.text_field :name, placeholder: "name"%><br/>
+	Description:<%= f.text_area :description, placeholder: "description" %><br/>
+	Price:<%= f.text_field :price, placeholder: "price" %> <br/>
+	Available:<%= f.text_field :available, placeholder: "available" %><br/>
+  Discontinue_on:<%= f.date_field :discontinue_on %><br/>
+  Image:<%= f.file_field :image %>
+  <%= f.submit %>
+	<% end %>
